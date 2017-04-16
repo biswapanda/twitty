@@ -12,9 +12,11 @@
 		489CF3EF1EA3AE7C005C35BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489CF3ED1EA3AE7C005C35BD /* Main.storyboard */; };
 		489CF3F11EA3AE7C005C35BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 489CF3F01EA3AE7C005C35BD /* Assets.xcassets */; };
 		489CF3F41EA3AE7C005C35BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489CF3F21EA3AE7C005C35BD /* LaunchScreen.storyboard */; };
+		4BAB9EF4A7E43311CE757DDA /* Pods_twitty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F8DE30E5A048F1D1E4D02 /* Pods_twitty.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19CE23E8A637F605121F808B /* Pods-twitty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitty.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitty/Pods-twitty.release.xcconfig"; sourceTree = "<group>"; };
 		489CF3E61EA3AE7C005C35BD /* twitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		489CF3E91EA3AE7C005C35BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		489CF3EB1EA3AE7C005C35BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		489CF3F01EA3AE7C005C35BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		489CF3F31EA3AE7C005C35BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		489CF3F51EA3AE7C005C35BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		557F8DE30E5A048F1D1E4D02 /* Pods_twitty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C6D33C97A96C5431525128E /* Pods-twitty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitty/Pods-twitty.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BAB9EF4A7E43311CE757DDA /* Pods_twitty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				489CF3E81EA3AE7C005C35BD /* twitty */,
 				489CF3E71EA3AE7C005C35BD /* Products */,
+				EF4217E62912296E5AC7057E /* Pods */,
+				6B564E3242B3DAF6DE1B4E40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = twitty;
 			sourceTree = "<group>";
 		};
+		6B564E3242B3DAF6DE1B4E40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				557F8DE30E5A048F1D1E4D02 /* Pods_twitty.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF4217E62912296E5AC7057E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D33C97A96C5431525128E /* Pods-twitty.debug.xcconfig */,
+				19CE23E8A637F605121F808B /* Pods-twitty.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 489CF3F81EA3AE7C005C35BD /* Build configuration list for PBXNativeTarget "twitty" */;
 			buildPhases = (
+				5D64B46DDCC22F10E19BD793 /* [CP] Check Pods Manifest.lock */,
 				489CF3E21EA3AE7C005C35BD /* Sources */,
 				489CF3E31EA3AE7C005C35BD /* Frameworks */,
 				489CF3E41EA3AE7C005C35BD /* Resources */,
+				22938E55529D764EAB1951AE /* [CP] Embed Pods Frameworks */,
+				E0CCC19D8282B8826C8E1A47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22938E55529D764EAB1951AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-twitty/Pods-twitty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D64B46DDCC22F10E19BD793 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0CCC19D8282B8826C8E1A47 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-twitty/Pods-twitty-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		489CF3E21EA3AE7C005C35BD /* Sources */ = {
@@ -258,6 +333,7 @@
 		};
 		489CF3F91EA3AE7C005C35BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C6D33C97A96C5431525128E /* Pods-twitty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = twitty/Info.plist;
@@ -270,6 +346,7 @@
 		};
 		489CF3FA1EA3AE7C005C35BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19CE23E8A637F605121F808B /* Pods-twitty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = twitty/Info.plist;
