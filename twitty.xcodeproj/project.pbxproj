@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4812F30C1EA42E9500B96232 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4812F30B1EA42E9500B96232 /* LoginViewController.swift */; };
 		489CF3EA1EA3AE7C005C35BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489CF3E91EA3AE7C005C35BD /* AppDelegate.swift */; };
-		489CF3EC1EA3AE7C005C35BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489CF3EB1EA3AE7C005C35BD /* ViewController.swift */; };
 		489CF3EF1EA3AE7C005C35BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489CF3ED1EA3AE7C005C35BD /* Main.storyboard */; };
 		489CF3F11EA3AE7C005C35BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 489CF3F01EA3AE7C005C35BD /* Assets.xcassets */; };
 		489CF3F41EA3AE7C005C35BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489CF3F21EA3AE7C005C35BD /* LaunchScreen.storyboard */; };
@@ -17,9 +17,9 @@
 
 /* Begin PBXFileReference section */
 		19CE23E8A637F605121F808B /* Pods-twitty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitty.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitty/Pods-twitty.release.xcconfig"; sourceTree = "<group>"; };
+		4812F30B1EA42E9500B96232 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		489CF3E61EA3AE7C005C35BD /* twitty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		489CF3E91EA3AE7C005C35BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		489CF3EB1EA3AE7C005C35BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		489CF3EE1EA3AE7C005C35BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		489CF3F01EA3AE7C005C35BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		489CF3F31EA3AE7C005C35BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4812F30A1EA42E7200B96232 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4812F30B1EA42E9500B96232 /* LoginViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
 		489CF3DD1EA3AE7C005C35BD = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +69,8 @@
 		489CF3E81EA3AE7C005C35BD /* twitty */ = {
 			isa = PBXGroup;
 			children = (
+				4812F30A1EA42E7200B96232 /* View Controller */,
 				489CF3E91EA3AE7C005C35BD /* AppDelegate.swift */,
-				489CF3EB1EA3AE7C005C35BD /* ViewController.swift */,
 				489CF3ED1EA3AE7C005C35BD /* Main.storyboard */,
 				489CF3F01EA3AE7C005C35BD /* Assets.xcassets */,
 				489CF3F21EA3AE7C005C35BD /* LaunchScreen.storyboard */,
@@ -211,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				489CF3EC1EA3AE7C005C35BD /* ViewController.swift in Sources */,
+				4812F30C1EA42E9500B96232 /* LoginViewController.swift in Sources */,
 				489CF3EA1EA3AE7C005C35BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +384,7 @@
 				489CF3FA1EA3AE7C005C35BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
