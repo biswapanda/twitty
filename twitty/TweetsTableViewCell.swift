@@ -21,6 +21,7 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
     
+    
     weak var tweet: Tweet! {
         didSet {
             tweetLabel.text = tweet.text
