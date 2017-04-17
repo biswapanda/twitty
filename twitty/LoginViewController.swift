@@ -8,11 +8,11 @@
 
 import UIKit
 
+
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTaped(_ sender: Any) {
-        print("login tapped")
+        TwitterClient.sharedInstance.login()
     }
 
 }
