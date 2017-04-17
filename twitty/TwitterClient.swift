@@ -23,12 +23,23 @@ class TwitterClient: BDBOAuth1SessionManager {
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: {(accessToken:BDBOAuth1Credential?) in
             if let accessToken = accessToken {
                 print("got access token \(accessToken)")
+                self.currentAccount()
             }
         },
         failure: { (error: Error?) in
             if let error = error {
                 print("login: error \(error)")
         }})
+    }
+    
+    func currentAccount() {
+        get("1.1/account/verify_credentials.json", parameters: nil, progress: nil,
+            success: { (task: URLSessionDataTask, response: Any?) in
+                let user = User(userDictionary: response as! NSDictionary)
+                print(user)
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print(error)
+        }
     }
     
     func login() {
