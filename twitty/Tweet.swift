@@ -14,10 +14,14 @@ class Tweet: NSObject {
     var authorScreenName: String?
     var authorName: String?
     var authorProfileURL: URL?
+    var retweetCount: Int!
+    var favoriteCount: Int!
     
     init(tweetDictionary: NSDictionary) {
         text = tweetDictionary["text"] as? String
         idStr = tweetDictionary["id_str"] as? String
+        retweetCount = tweetDictionary["retweet_count"] as? Int ?? 0
+        favoriteCount = tweetDictionary["favorite_count"] as? Int ?? 0
         if let author = tweetDictionary["user"] as? NSDictionary {
             authorScreenName = author["screen_name"] as? String
             authorName = author["name"] as? String

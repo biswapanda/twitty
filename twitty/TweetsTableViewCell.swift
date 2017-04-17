@@ -17,6 +17,9 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var authorScreenNameLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
     @IBOutlet weak var createdTimeLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    
     
     weak var tweet: Tweet! {
         didSet {
@@ -24,6 +27,16 @@ class TweetsTableViewCell: UITableViewCell {
             authorNameLabel.text = tweet.authorName
             if let profileImageURL = tweet.authorProfileURL {
                 profileImageView.setImageWith(profileImageURL)
+            }
+            if let retweetCount = tweet.retweetCount {
+                if retweetCount > 0 {
+                    retweetCountLabel.text = "\(retweetCount)"
+                }
+            }
+            if let favoriteCount = tweet.favoriteCount {
+                if favoriteCount > 0 {
+                    favoriteCountLabel.text = "\(favoriteCount)"
+                }
             }
         }
     }
