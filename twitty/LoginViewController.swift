@@ -20,7 +20,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTaped(_ sender: Any) {
-        TwitterClient.sharedInstance.login()
+        let client = TwitterClient.sharedInstance
+        client.login(success: { 
+            print("login success")
+        }) { (error: Error?) in
+            print("\(error?.localizedDescription)")
+        }
     }
 
 }
