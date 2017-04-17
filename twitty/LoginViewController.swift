@@ -19,12 +19,15 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    
     @IBAction func loginTaped(_ sender: Any) {
         let client = TwitterClient.sharedInstance
-        client.login(success: { 
-            print("login success")
+        client.login(success: { (user: User) in
+            User.currentUser = user
+            print("login success..")
         }) { (error: Error?) in
-            print("\(error?.localizedDescription)")
+            let errorText = error?.localizedDescription ?? "unknow error"
+            print("Error: \(errorText)")
         }
     }
 

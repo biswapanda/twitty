@@ -18,7 +18,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     static let sharedInstance: TwitterClient = TwitterClient(baseURL: URL(string: twitterBaseURL),
                                                              consumerKey: consumerKey,
                                                              consumerSecret: consumerSecret)
-    var logginSuccsessFunc: (() -> ())?
+    var logginSuccsessFunc: ((User) -> ())?
     var loggingErrorFunc: ((Error?) -> ())?
     
     
@@ -42,14 +42,13 @@ class TwitterClient: BDBOAuth1SessionManager {
         get("1.1/account/verify_credentials.json", parameters: nil, progress: nil,
             success: { (task: URLSessionDataTask, response: Any?) in
                 let user = User(userDictionary: response as! NSDictionary)
-                print ("got user account \(user)")
-                self.logginSuccsessFunc?()
+                self.logginSuccsessFunc?(user)
         }) { (task: URLSessionDataTask?, error: Error) in
             self.loggingErrorFunc?(error)
         }
     }
     
-    func login(success: @escaping () -> (), error: @escaping (Error?) -> ()) {
+    func login(success: @escaping (User) -> (), error: @escaping (Error?) -> ()) {
         logginSuccsessFunc = success
         loggingErrorFunc = error
         TwitterClient.sharedInstance.deauthorize()
