@@ -16,6 +16,7 @@ class Tweet: NSObject {
     var authorProfileURL: URL?
     var retweetCount: Int!
     var favoriteCount: Int!
+    var timestamp: Date?
     
     init(tweetDictionary: NSDictionary) {
         text = tweetDictionary["text"] as? String
@@ -28,6 +29,11 @@ class Tweet: NSObject {
             if let url = author["profile_image_url"] as? String {
                 authorProfileURL = URL(string: url)
             }
+        }
+        if let createdAt = tweetDictionary["created_at"] as? String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+            timestamp = formatter.date(from: createdAt)
         }
     }
     

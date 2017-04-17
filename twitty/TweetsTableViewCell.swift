@@ -25,6 +25,12 @@ class TweetsTableViewCell: UITableViewCell {
         didSet {
             tweetLabel.text = tweet.text
             authorNameLabel.text = tweet.authorName
+            authorScreenNameLabel.text = tweet.authorScreenName
+            if let timestamp = tweet.timestamp {
+                let df = DateFormatter()
+                df.dateFormat = "hh"
+                createdTimeLabel.text = "\(df.string(from: timestamp)) h"
+            }
             if let profileImageURL = tweet.authorProfileURL {
                 profileImageView.setImageWith(profileImageURL)
             }
