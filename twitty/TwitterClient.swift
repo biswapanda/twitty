@@ -58,6 +58,18 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func postMessage(message:String, success: @escaping () -> (), error: @escaping (Error)-> ()) {
+        let urlEscapedMessage = message.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlString = "1.1/statuses/update.json?status=\(urlEscapedMessage!)"
+        post(urlString, parameters: nil, progress: nil,
+            success: { (task: URLSessionDataTask, response: Any?) in
+                success()
+        }) { (task: URLSessionDataTask?, errorMsg: Error) in
+            error(errorMsg)
+        }
+        
+    }
+    
     func login(success: @escaping (User) -> (), error: @escaping (Error?) -> ()) {
         logginSuccsessFunc = success
         loggingErrorFunc = error
