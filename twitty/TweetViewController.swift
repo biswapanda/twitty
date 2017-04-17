@@ -22,6 +22,25 @@ class TweetViewController: UIViewController {
     
     weak var tweet: Tweet!
     
+    @IBAction func replyAction(_ sender: Any) {
+    }
+    
+    @IBAction func retweetAction(_ sender: Any) {
+        TwitterClient.sharedInstance.retweet(tweetID: tweet.idStr!, success: {
+            // yay!
+        }) { (error: Error) in
+            print ("error while retweeting \(error)")
+        }
+    }
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        TwitterClient.sharedInstance.addFavorite(tweetID: tweet.idStr!, success: {
+            // yay!
+        }) { (error: Error) in
+            print ("error while marking tweet as favorite \(error)")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if tweet == nil {

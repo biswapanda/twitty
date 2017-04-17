@@ -9,12 +9,19 @@
 import UIKit
 import BDBOAuth1Manager
 
+extension Notification.Name {
+    
+    static let onUserLogout = Notification.Name("on-user-logout")
+}
+
+
 class TwitterClient: BDBOAuth1SessionManager {
     
     static let twitterBaseURL = "https://api.twitter.com"
     static let consumerKey = "rUeuxpaQjrOfFVyi7ZpUmoTVz"
     static let consumerSecret = "ALQcv2ZQChXpzyCbZ3Gjbw4RaSsOzDoRuYzRNi4bfmda8BvRpz"
-
+    static let UserLogoutMessage = "UserLoggedOut"
+    
     static let sharedInstance: TwitterClient = TwitterClient(baseURL: URL(string: twitterBaseURL),
                                                              consumerKey: consumerKey,
                                                              consumerSecret: consumerSecret)
@@ -67,7 +74,28 @@ class TwitterClient: BDBOAuth1SessionManager {
         }) { (task: URLSessionDataTask?, errorMsg: Error) in
             error(errorMsg)
         }
-        
+    }
+    
+    func retweet(tweetID: String, success: @escaping () -> (), error: @escaping (Error) -> ()) {
+        post("1.1/statuses/retweet/\(tweetID).json",
+            parameters: nil,
+            progress: nil,
+            success: { (task: URLSessionDataTask, resp: Any?) in
+                success()
+        }) { (task: URLSessionDataTask?, errorMsg: Error) in
+                error(errorMsg)
+        }
+    }
+    
+    func addFavorite(tweetID: String, success: @escaping () -> (), error: @escaping (Error) -> ()) {
+        post("1.1/favorites/create.json?id=\(tweetID)",
+            parameters: nil,
+            progress: nil,
+            success: { (task: URLSessionDataTask, resp: Any?) in
+                success()
+        }) { (task: URLSessionDataTask?, errorMsg: Error) in
+            error(errorMsg)
+        }
     }
     
     func login(success: @escaping (User) -> (), error: @escaping (Error?) -> ()) {
@@ -87,4 +115,12 @@ class TwitterClient: BDBOAuth1SessionManager {
             self.loggingErrorFunc?(error)
         }
     }
+    
+    func logout() {
+        User.currentUser = nil
+        deauthorize()
+        NotificationCenter.default.post(name: .onUserLogout, object: nil)
+    }
+    
+
 }

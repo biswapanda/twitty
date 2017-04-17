@@ -55,6 +55,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return tweets.count
     }
     
+    @IBAction func signOutAction(_ sender: Any) {
+        User.currentUser = nil
+        TwitterClient.sharedInstance.logout()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segue_identifier = segue.identifier {
             if segue_identifier == "ViewTweetSeague" {

@@ -17,17 +17,16 @@ class ComposeTweetViewController: UIViewController {
     @IBOutlet weak var messageTextView: UITextView!
    
     @IBAction func tweetTapped(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
         TwitterClient.sharedInstance.postMessage(
             message: messageTextView.text, success: {
-                self.presentingViewController?.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
         }) { (error: Error) in
             print(error.localizedDescription)
         }
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

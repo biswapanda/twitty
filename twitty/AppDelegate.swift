@@ -21,10 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let vc = storyBoard.instantiateViewController(withIdentifier: "TweetsNavigationController")
             window?.rootViewController = vc
-            
         } else {
             print("No current user")
         }
+        
+        NotificationCenter.default.addObserver(forName: .onUserLogout, object: nil, queue: OperationQueue.main)
+        { (notif: Notification) in
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+            self.window?.rootViewController = vc
+        }
+        
         return true
     }
 
