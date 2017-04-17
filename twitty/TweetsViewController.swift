@@ -55,4 +55,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return tweets.count
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tweetViewController = segue.destination as! TweetViewController
+        let indexPath = tweetsTableView.indexPathForSelectedRow!
+        let tweet = self.tweets[indexPath.row] as! Tweet
+        tweetViewController.tweet = tweet
+    }
+    
 }
